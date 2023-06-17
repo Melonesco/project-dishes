@@ -57,7 +57,7 @@ export const ContentTime = styled.div`
 export const ButtonBlock = styled.div`
   width: 100%;
   display: flex;
-  justify-content: right;
+  justify-content: left;
   align-items: center;
 `;
 
@@ -120,7 +120,10 @@ export const ListDescription = styled.p`
   color: #ffffff;
 `;
 
-export const Info = styled.div``;
+export const Info = styled.div`
+  max-width: 100%;
+  overflow: auto;
+`;
 export const InfoTitle = styled.h2`
   font-weight: 700;
   font-size: 24px;
@@ -136,4 +139,5 @@ export const InfoText = styled.p`
   font-size: 20px;
   line-height: 26px;
   color: #6b6b6b;
+  min-height: 400px;
 `;

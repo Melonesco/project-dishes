@@ -34,6 +34,9 @@ export const UserBlock = styled.div`
 export const UserImg = styled.img`
   width: 60px;
   height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  overflow: hidden;
 `;
 
 export const UserInfo = styled.div`

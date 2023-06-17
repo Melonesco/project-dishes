@@ -92,8 +92,10 @@ export const UserName = styled.p`
 
 export const UserImg = styled.img`
   width: 50px;
-  height: 50%;
+  height: 50px;
+  object-fit: cover;
   border-radius: 50%;
+  overflow: hidden;
 `;
 
 export const Nav = styled.nav`

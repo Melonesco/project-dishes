@@ -2,6 +2,7 @@ export type ISlideType = {
   id: number;
   imageUrl: string;
   description: string;
+  type: string;
 };
 
 export interface IUser {

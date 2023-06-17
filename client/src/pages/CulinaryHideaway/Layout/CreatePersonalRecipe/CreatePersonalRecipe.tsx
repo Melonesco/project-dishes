@@ -164,10 +164,15 @@ const CreatePersonalRecipe = () => {
           render={({ field }) => (
             <S.Select value={field.value} onChange={field.onChange}>
               <option value="">Виберіть категорію страви</option>
-              <option value="simpleDish">Проста страва</option>
-              <option value="pasta">Паста</option>
+              <option value="marinade">Маринад</option>
+              <option value="salad">Салат</option>
               <option value="hotDish">Гаряча страва</option>
+              <option value="coldDish">Холодна страва</option>
+              <option value="appetizer">Закуска</option>
+              <option value="soup">Суп</option>
               <option value="dessert">Десерт</option>
+              <option value="pastries">Випічка</option>
+              <option value="drinks">Напої</option>
             </S.Select>
           )}
         />

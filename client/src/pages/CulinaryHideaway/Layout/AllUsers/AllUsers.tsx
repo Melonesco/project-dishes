@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import { usersSelector } from "../../../../redux/user/selectors";
 import AvatarIcon from "../../../../assets/images/avatar.svg";
 import instance from "../../../../axios";
-import { selectAuthData, selectIsAuth } from "../../../../redux/auth/selectors";
+import { selectAuthData } from "../../../../redux/auth/selectors";
 import { IUser } from "../../../../utils/types";
 import * as S from "./styles";
 
@@ -13,7 +13,6 @@ const AllUsers = () => {
   const [isAdmin, setIsAdmin] = useState(true);
   const usersData = useSelector(usersSelector);
   const authData = useSelector(selectAuthData);
-  const isAuth = useSelector(selectIsAuth);
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
@@ -53,7 +52,11 @@ const AllUsers = () => {
             <S.Content>
               <S.UserBlock>
                 <S.UserImg
-                  src={`http://localhost:5000${obj.avatarUrl}` && AvatarIcon}
+                  src={
+                    obj.avatarUrl
+                      ? `http://localhost:5000${obj.avatarUrl}`
+                      : AvatarIcon
+                  }
                   alt=""
                 />
                 <S.UserInfo>
@@ -66,7 +69,7 @@ const AllUsers = () => {
               </S.UserBlock>
             </S.Content>
             <S.ButtonBlock>
-              {!isAuth || !authData?.adminStatus ? (
+              {authData?.adminStatus && obj._id !== authData?._id ? (
                 <S.Button
                   onClick={() => handleChangeStatus(!obj.adminStatus, obj._id)}
                   background={!obj.adminStatus ? "#840505" : "#ffffff"}
@@ -77,7 +80,7 @@ const AllUsers = () => {
                     : "Відмінити адміністратора"}
                 </S.Button>
               ) : null}
-              {!isAuth || !authData?.adminStatus ? (
+              {authData?.adminStatus && obj._id !== authData?._id ? (
                 <S.Button onClick={() => handleRemove(obj._id)}>
                   Видалити користувача
                 </S.Button>

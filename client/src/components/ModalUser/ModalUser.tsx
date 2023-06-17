@@ -7,6 +7,7 @@ import { RootState } from "../../redux/store";
 import { useDispatch } from "react-redux";
 import instance from "../../axios";
 import { IUser } from "../../utils/types";
+import { useNavigate } from "react-router-dom";
 
 interface IModalUser {
   setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -23,6 +24,7 @@ const ModalUser = ({ setIsModalOpen, userInfo }: IModalUser) => {
   const modalRef = useRef<HTMLDivElement>(null);
   const dispatch: ThunkDispatch<RootState, null, AnyAction> = useDispatch();
   const [valueButton, setValueButton] = useState<boolean>(true);
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState(data);
 
@@ -89,6 +91,8 @@ const ModalUser = ({ setIsModalOpen, userInfo }: IModalUser) => {
     if (window.confirm("Are you sure you want to log")) {
       dispatch(logout());
       window.localStorage.removeItem("token");
+      closeModal();
+      navigate("/login");
     }
   };
 

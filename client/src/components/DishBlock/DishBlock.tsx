@@ -10,34 +10,6 @@ interface IDishBlock {
 
 const DishBlock = ({ filteredDishes }: IDishBlock) => {
   const navigate = useNavigate();
-  // const dispatch: ThunkDispatch<RootState, null, AnyAction> = useDispatch();
-  //
-  // const { categoryIndex, currentPage, searchValue } = useSelector(selectFilter);
-  // const isSearch = useRef(false);
-  // const isMounted = useRef(false);
-  //
-  // const onChangeCategory = useCallback((index: number) => {
-  //   dispatch(setCategoryId(index));
-  // }, []);
-  //
-  // const onChangePage = (number: number) => dispatch(setCurrentPage(number));
-  //
-  // React.useEffect(() => {
-  //   if (window.location.search) {
-  //     const params = qs.parse(
-  //       window.location.search.substring(1)
-  //     ) as unknown as any;
-  //
-  //     dispatch(
-  //       setFilters({
-  //         searchValue: params.search,
-  //         categoryIndex: Number(params.category),
-  //         currentPage: Number(params.currentPage),
-  //       })
-  //     );
-  //     isSearch.current = true;
-  //   }
-  // }, [dispatch]);
 
   const handleClick = (data: IDish) => {
     navigate(`/dishes/${data._id}`);

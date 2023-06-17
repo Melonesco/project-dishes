@@ -11,6 +11,7 @@ import { RootState } from "../../redux/store";
 import ModalUser from "../ModalUser";
 import { IUser } from "../../utils/types";
 import { fetchAuthMe } from "../../redux/auth/asyncAction";
+import { useLocation } from "react-router-dom";
 
 interface IHeader {
   setNumberDisplay: React.Dispatch<React.SetStateAction<number | null>>;
@@ -29,6 +30,7 @@ const Header = ({
   const dispatch: ThunkDispatch<RootState, null, AnyAction> = useDispatch();
   const [userInfo, setUserInfo] = useState<IUser | null>(null);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const location = useLocation();
 
   useEffect(() => {
     dispatch(fetchAuthMe()).then((res) => setUserInfo(res.payload));
@@ -46,18 +48,24 @@ const Header = ({
           <S.LogoLink to="/">
             <S.Logo src={Logo} alt="logo" />
           </S.LogoLink>
-          <S.InputBlock>
-            <S.SearchIcon onClick={handleSearch} src={SearchIcon} alt="icon" />
-            <S.Input
-              type="text"
-              maxLength={50}
-              placeholder="Пошук"
-              value={searchValue}
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                setSearchValue(e.target.value)
-              }
-            />
-          </S.InputBlock>
+          {location.pathname === "/" && (
+            <S.InputBlock>
+              <S.SearchIcon
+                onClick={handleSearch}
+                src={SearchIcon}
+                alt="icon"
+              />
+              <S.Input
+                type="text"
+                maxLength={50}
+                placeholder="Пошук"
+                value={searchValue}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                  setSearchValue(e.target.value)
+                }
+              />
+            </S.InputBlock>
+          )}
         </S.Block>
         <S.Container>
           {isAuth ? (

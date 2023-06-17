@@ -8,6 +8,7 @@ import MessageFromUser from "./Layout/MessageFromUser";
 import AllUsers from "./Layout/AllUsers";
 import ManagementRecipe from "./Layout/ManagementRecipe";
 import { useSelector } from "react-redux";
+import { Navigate } from "react-router-dom";
 import { selectAuthData } from "../../redux/auth/selectors";
 import * as S from "./styles";
 
@@ -66,6 +67,10 @@ const CulinaryHideaway = ({ numberDisplay }: ICulinaryHideaway) => {
     closeModal();
     alert("Ви відправили повідомлення підтримці");
   };
+
+  if (!window.localStorage.getItem("token")) {
+    return <Navigate to="/" />;
+  }
 
   return (
     <S.CulinaryHideaway>

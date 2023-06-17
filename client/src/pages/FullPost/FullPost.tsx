@@ -59,7 +59,18 @@ const FullPost = () => {
       <S.Content>
         <S.ContentBlock>
           <S.Title>{data?.title}</S.Title>
-          <S.Text>Оцінки **** 5400</S.Text>
+          {data?.user._id === authData?._id ? null : (
+            <S.ButtonBlock>
+              <S.Button
+                onClick={() => addRecipe(data)}
+                disabled={buttonStatus}
+                cursor={buttonStatus ? "default" : "pointer"}
+                hover={buttonStatus ? "#840505" : "#ae2a2f"}
+              >
+                {buttonStatus ? "Добавлено" : "Додати до книги рецептів"}
+              </S.Button>
+            </S.ButtonBlock>
+          )}
         </S.ContentBlock>
         <S.ContentBlock>
           <S.ContentTime>
@@ -70,18 +81,6 @@ const FullPost = () => {
           <S.Text>{data?.weight}</S.Text>
         </S.ContentBlock>
       </S.Content>
-      {data?.user._id === authData?._id ? null : (
-        <S.ButtonBlock>
-          <S.Button
-            onClick={() => addRecipe(data)}
-            disabled={buttonStatus}
-            cursor={buttonStatus ? "default" : "pointer"}
-            hover={buttonStatus ? "#840505" : "#ae2a2f"}
-          >
-            {buttonStatus ? "Добавлено" : "Додати до книги рецептів"}
-          </S.Button>
-        </S.ButtonBlock>
-      )}
       <S.DescriptionBlock>
         <S.List>
           <S.ListTitle>Список продуктів:</S.ListTitle>

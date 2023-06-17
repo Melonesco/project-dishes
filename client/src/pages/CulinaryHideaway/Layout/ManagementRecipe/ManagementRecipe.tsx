@@ -51,7 +51,7 @@ const ManagementRecipe = () => {
         <FilteredDishes
           filteredDishes={filteredDishes}
           handleClick={handleRemove}
-          changeButton={null}
+          changeButton={true}
         />
       </S.Content>
     </div>

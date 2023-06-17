@@ -218,3 +218,27 @@ export const Line = styled.span`
   width: 100%;
   border-bottom: 3px solid #840505;
 `;
+
+export const ButtonBlock = styled.div`
+  width: 100%;
+  text-align: center;
+  margin-bottom: 120px;
+`;
+
+export const ButtonMore = styled.button`
+  text-align: center;
+  border: none;
+  background-color: #840505;
+  font-size: 32px;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 6px;
+  color: #ffffff;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: #ae2a2f;
+  }
+`;

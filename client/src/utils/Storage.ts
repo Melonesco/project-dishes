@@ -8,21 +8,25 @@ export const CategoriesDishes: ISlideType[] = [
   {
     id: 1,
     imageUrl: Pasta,
-    description: "Паста",
+    description: "Гарячі страви",
+    type: "hotDish",
   },
   {
     id: 2,
     imageUrl: HotDish,
-    description: "Гарячі страви",
+    description: "Супи",
+    type: "soup",
   },
   {
     id: 3,
     imageUrl: SimpleDish,
-    description: "Прості страви",
+    description: "Закуски",
+    type: "appetizer",
   },
   {
     id: 4,
     imageUrl: Pudding,
     description: "Десерт",
+    type: "dessert",
   },
 ];

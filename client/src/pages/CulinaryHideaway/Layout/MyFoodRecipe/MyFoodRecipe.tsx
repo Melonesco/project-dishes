@@ -28,7 +28,7 @@ const MyFoodRecipe = () => {
           <RationBlock key={obj._id} ration={obj} />
         ))
       ) : (
-        <div>Пусто</div>
+        <S.EmptyText>Пусто =3</S.EmptyText>
       )}
     </>
   );

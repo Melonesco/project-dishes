@@ -41,6 +41,7 @@ export const ModalStatus = styled.p`
 export const ModalImg = styled.img`
   width: 46px;
   height: 46px;
+  object-fit: cover;
   border-radius: 50%;
 `;
 

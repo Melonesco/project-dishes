@@ -54,6 +54,7 @@ export const DishInfo = styled.div`
 export const DishContent = styled.div`
   display: flex;
   align-items: center;
+  justify-content: end;
 `;
 
 export const DishText = styled.p`
